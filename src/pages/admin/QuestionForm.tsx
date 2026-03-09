@@ -301,20 +301,33 @@ export default function QuestionForm() {
 
                     <div className="md:col-span-2">
                         <label className="block text-sm font-medium text-slate-700 mb-1">
-                            Upload Media/File (Opsional)
+                            Link Media (Hotlink) atau Upload (Opsional)
                         </label>
 
                         {!previewUrl ? (
-                            <label className={`w-full flex-1 flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl transition-all cursor-pointer ${mediaType ? 'border-blue-300 bg-blue-50 hover:bg-blue-100' : 'border-slate-200 bg-slate-50'}`}>
-                                <UploadCloud size={32} className={`mb-2 ${mediaType ? 'text-blue-500' : 'text-slate-400'}`} />
-                                <span className={`text-sm font-medium ${mediaType ? 'text-blue-700' : 'text-slate-500'}`}>Klik untuk browse, atau Paste (Ctrl+V)</span>
+                            <div className="space-y-3">
                                 <input
-                                    type="file"
-                                    accept="image/*,video/*"
-                                    className="hidden"
-                                    onChange={handleFileChange}
+                                    type="url"
+                                    placeholder={mediaType === 'video' ? "https://contoh.com/video.mp4 (Hotlink URL)" : "https://contoh.com/gambar.png (Hotlink URL)"}
+                                    value={mediaUrl}
+                                    onChange={(e) => {
+                                        setMediaUrl(e.target.value);
+                                        if (e.target.value) setPreviewUrl(e.target.value);
+                                    }}
+                                    className="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm font-medium"
                                 />
-                            </label>
+
+                                <label className={`w-full flex flex-col items-center justify-center p-4 border-2 border-dashed rounded-xl transition-all cursor-pointer ${mediaType ? 'border-blue-300 bg-blue-50 hover:bg-blue-100' : 'border-slate-200 bg-slate-50'}`}>
+                                    <UploadCloud size={24} className={`mb-1 ${mediaType ? 'text-blue-500' : 'text-slate-400'}`} />
+                                    <span className={`text-xs font-semibold ${mediaType ? 'text-blue-700' : 'text-slate-500'}`}>Atau Upload File (Opsional)</span>
+                                    <input
+                                        type="file"
+                                        accept={mediaType === 'video' ? "video/*" : "image/*,video/*"}
+                                        className="hidden"
+                                        onChange={handleFileChange}
+                                    />
+                                </label>
+                            </div>
                         ) : (
                             <div className="relative border border-slate-200 rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center h-40 group">
                                 {mediaType === 'image' ? (
