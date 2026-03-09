@@ -36,12 +36,12 @@ export default function Home() {
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                        Simulasi Tes SIM Online <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">2026.</span>
+                        Wujudkan Perjalanan Aman dengan <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">SimulaSIM.</span>
                     </h1>
 
-                    <h2 className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-                        <strong>Cara Lulus Tes Teori SIM</strong> dengan mudah. Latihan simulasi soal SIM A &amp; C terbaru secara akurat, lengkap dengan pengujian wawasan lalu lintas dan persepsi bahaya resmi.
-                    </h2>
+                    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Latih insting berkendara Anda. Kami menguji wawasan berlalu lintas, pengenalan rambu, dan persepsi bahaya sebelum Anda terjun ke jalan raya.
+                    </p>
 
                     <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link
