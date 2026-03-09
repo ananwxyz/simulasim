@@ -33,36 +33,35 @@ export default function QuizSession() {
             setLoading(true);
             const examType = session?.examType || 'SIM C';
 
-            // Sesi 1: Persepsi Bahaya (25 soal)
-            const { data: bahaya, error: err1 } = await supabase
+            // Ambil semua soal untuk tipe ujian ini sekaligus
+            const { data, error } = await supabase
                 .from('questions')
                 .select('*')
-                .eq('exam_type', examType)
-                .eq('material_category', 'Persepsi Bahaya')
-                .limit(25);
+                .eq('exam_type', examType);
 
-            // Sesi 2: Wawasan (20 soal)
-            const { data: wawasan, error: err2 } = await supabase
-                .from('questions')
-                .select('*')
-                .eq('exam_type', examType)
-                .eq('material_category', 'Wawasan')
-                .limit(20);
+            if (error) throw error;
 
-            // Sesi 3: Pengetahuan (20 soal)
-            const { data: pengetahuan, error: err3 } = await supabase
-                .from('questions')
-                .select('*')
-                .eq('exam_type', examType)
-                .eq('material_category', 'Pengetahuan')
-                .limit(20);
+            const qData = data || [];
 
-            if (err1 || err2 || err3) throw (err1 || err2 || err3);
+            // Fungsi untuk mengacak (shuffle) array soal menggunakan algoritma Fisher-Yates
+            const shuffleArray = <T,>(array: T[]): T[] => {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            };
+
+            // Filter berdasarkan kategori, lalu acak susunannya, baru potong (slice) sesuai kuota
+            const bahaya = shuffleArray(qData.filter(q => q.material_category === 'Persepsi Bahaya')).slice(0, 25);
+            const wawasan = shuffleArray(qData.filter(q => q.material_category === 'Wawasan')).slice(0, 20);
+            const pengetahuan = shuffleArray(qData.filter(q => q.material_category === 'Pengetahuan')).slice(0, 20);
 
             const allQuestions = [
-                ...(bahaya || []),
-                ...(wawasan || []),
-                ...(pengetahuan || [])
+                ...(bahaya),
+                ...(wawasan),
+                ...(pengetahuan)
             ];
 
             if (allQuestions.length === 0) {
