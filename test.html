@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Test</title></head>
+  <body>
+    <script>
+      fetch('http://localhost:5173/src/main.tsx')
+        .then(r => r.text())
+        .then(t => console.log('main.tsx exists:', t.length > 0))
+    </script>
+  </body>
+</html>
