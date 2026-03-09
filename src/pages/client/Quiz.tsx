@@ -30,24 +30,48 @@ export default function QuizSession() {
 
     const fetchQuestions = async () => {
         try {
-            // In real-world, might want to randomize or take a subset
-            const { data, error } = await supabase
+            setLoading(true);
+            const examType = session?.examType || 'SIM C';
+
+            // Sesi 1: Persepsi Bahaya (25 soal)
+            const { data: bahaya, error: err1 } = await supabase
                 .from('questions')
                 .select('*')
-                .eq('exam_type', session?.examType || 'SIM C')
-                .order('id', { ascending: true }); // Or use random logic
+                .eq('exam_type', examType)
+                .eq('material_category', 'Persepsi Bahaya')
+                .limit(25);
 
-            if (error) throw error;
+            // Sesi 2: Wawasan (20 soal)
+            const { data: wawasan, error: err2 } = await supabase
+                .from('questions')
+                .select('*')
+                .eq('exam_type', examType)
+                .eq('material_category', 'Wawasan')
+                .limit(20);
 
-            const qData = data || [];
+            // Sesi 3: Pengetahuan (20 soal)
+            const { data: pengetahuan, error: err3 } = await supabase
+                .from('questions')
+                .select('*')
+                .eq('exam_type', examType)
+                .eq('material_category', 'Pengetahuan')
+                .limit(20);
 
-            if (qData.length === 0) {
+            if (err1 || err2 || err3) throw (err1 || err2 || err3);
+
+            const allQuestions = [
+                ...(bahaya || []),
+                ...(wawasan || []),
+                ...(pengetahuan || [])
+            ];
+
+            if (allQuestions.length === 0) {
                 alert('Bank soal kosong! Harap hubungi Admin.');
                 navigate('/register');
                 return;
             }
 
-            setQuestions(qData);
+            setQuestions(allQuestions);
         } catch (err) {
             console.error(err);
             alert('Gagal memuat kuis');
@@ -165,12 +189,21 @@ export default function QuizSession() {
 
                     <div className="flex items-center gap-6">
                         <div className="flex items-center gap-2">
-                            <span className="text-sm font-semibold text-slate-500">Soal</span>
+                            <span className="text-sm font-semibold text-slate-500">
+                                {questions.length > 0 && (
+                                    <>
+                                        {questions[currentIndex].material_category === 'Persepsi Bahaya' ? 'Sesi 1' :
+                                            questions[currentIndex].material_category === 'Wawasan' ? 'Sesi 2' : 'Sesi 3'}
+                                        <span className="mx-2">|</span>
+                                    </>
+                                )}
+                                Soal
+                            </span>
                             <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold text-sm">
                                 {currentIndex + 1} / {questions.length}
                             </span>
                             {questions.length > 0 && (
-                                <span className="hidden sm:inline-block bg-slate-200 text-slate-700 px-2.5 py-1 rounded ml-2 text-xs font-bold tracking-tight">
+                                <span className="hidden sm:inline-block bg-blue-600 text-white px-2.5 py-1 rounded ml-2 text-xs font-bold tracking-tight shadow-sm">
                                     {questions[currentIndex].material_category}
                                 </span>
                             )}
