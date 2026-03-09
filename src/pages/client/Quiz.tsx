@@ -7,7 +7,7 @@ import { Loader2, CheckCircle2, XCircle, AlertCircle, ArrowLeft } from 'lucide-r
 
 export default function QuizSession() {
     const navigate = useNavigate();
-    const session = getUserSession();
+    const [session] = useState(getUserSession());
 
     // Data State
     const [questions, setQuestions] = useState<Question[]>([]);
