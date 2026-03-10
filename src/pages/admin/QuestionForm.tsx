@@ -133,28 +133,6 @@ export default function QuestionForm() {
         setMediaType('');
     };
 
-    const checkDuplicate = async () => {
-        // Cek apakah ada teks pertanyaan yang sama persis (case-insensitive) di kategori yang sama
-        let query = supabase
-            .from('questions')
-            .select('id')
-            .eq('exam_type', examType)
-            .eq('material_category', materialCategory)
-            .ilike('question_text', questionText.trim());
-
-        if (isEditing && id) {
-            // Kecualikan ID yang sedang di-edit itu sendiri
-            query = query.neq('id', id);
-        }
-
-        const { data, error } = await query;
-        if (error) {
-            console.error("Gagal memeriksa duplikasi:", error);
-            return false;
-        }
-        return data && data.length > 0;
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const errorMsg = validateForm();
@@ -165,14 +143,6 @@ export default function QuestionForm() {
 
         setLoading(true);
         try {
-            // Validasi Soal Ganda
-            const isDuplicate = await checkDuplicate();
-            if (isDuplicate) {
-                alert(`Gagal! Soal dengan pertanyaan yang persis sama sudah ada di dalam paket ${examType} - ${materialCategory}.`);
-                setLoading(false);
-                return;
-            }
-
             let finalMediaUrl = mediaUrl;
 
             // Handle the actual File upload to Supabase Storage if local file exists
