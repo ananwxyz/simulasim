@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Bike, Car, ShieldCheck, Clock, Award, ArrowRight, Download } from 'lucide-react';
+import { Bike, Car, ShieldCheck, LayoutDashboard, Award, ArrowRight, Download } from 'lucide-react';
 
 export default function Home() {
     return (
@@ -99,10 +99,10 @@ export default function Home() {
 
                     <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                         <div className="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                            <Clock size={28} />
+                            <LayoutDashboard size={28} />
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-3">Waktu Terukur</h3>
-                        <p className="text-slate-600 leading-relaxed">Dilengkapi dengan sesi berbasis waktu untuk melatih kecepatan pengambilan keputusan partisipan di lapangan.</p>
+                        <h3 className="text-xl font-bold text-slate-900 mb-3">Akses Mudah & Fleksibel</h3>
+                        <p className="text-slate-600 leading-relaxed">Berlatih soal ujian kapan saja dan di mana saja. Tampilan aplikasi yang adaptif nyaman digunakan baik di layar ponsel maupun komputer.</p>
                     </div>
 
                     <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
