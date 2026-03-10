@@ -242,17 +242,22 @@ export default function QuizSession() {
                                     onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x400?text=Gagal+Memuat+Gambar' }}
                                 />
                             ) : currentQ.media_type === 'video' ? (
-                                <video
-                                    src={currentQ.media_url}
-                                    controls
-                                    playsInline
-                                    loop
-                                    controlsList="nodownload"
-                                    preload="metadata"
-                                    className="max-h-[350px] w-full bg-black"
-                                >
-                                    Browser Anda tidak mendukung HTML5 video.
-                                </video>
+                                <div className="relative w-full flex flex-col">
+                                    <video
+                                        src={currentQ.media_url}
+                                        controls
+                                        playsInline
+                                        loop
+                                        controlsList="nodownload"
+                                        preload="metadata"
+                                        className="max-h-[350px] w-full bg-black"
+                                    >
+                                        Browser Anda tidak mendukung HTML5 video.
+                                    </video>
+                                    <p className="absolute bottom-12 left-4 text-[11px] text-slate-300 italic pointer-events-none bg-black/40 px-2 py-1 rounded backdrop-blur-sm border border-slate-700/50 drop-shadow-md">
+                                        silakan tekan/tap video secara manual
+                                    </p>
+                                </div>
                             ) : null}
                         </div>
                     )}
