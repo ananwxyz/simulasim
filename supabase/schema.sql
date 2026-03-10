@@ -69,3 +69,19 @@ CREATE POLICY "Allow public insert test_results" ON public.test_results
 -- Authenticated admins can read all results
 CREATE POLICY "Allow authenticated read test_results" ON public.test_results
   FOR SELECT TO authenticated USING (true);
+
+-- 8. Create table for Feedback
+CREATE TABLE public.feedback (
+  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_email text REFERENCES public.users(email) ON DELETE SET NULL,
+  message text NOT NULL,
+  created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+ALTER TABLE public.feedback ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public insert to feedback" ON public.feedback
+  FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Allow authenticated read feedback" ON public.feedback
+  FOR SELECT TO authenticated USING (true);
