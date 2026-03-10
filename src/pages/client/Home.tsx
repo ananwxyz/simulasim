@@ -8,7 +8,7 @@ export default function Home() {
             <header className="px-6 py-6 border-b border-slate-200 bg-white sticky top-0 z-10">
                 <div className="max-w-6xl mx-auto flex justify-between items-center">
                     <div className="flex items-center gap-2 text-blue-600 font-extrabold text-2xl tracking-tighter">
-                        <Bike size={32} />
+                        <img src="/logo.png" alt="SimulaSIM Logo" className="w-8 h-8 object-contain" />
                         SimulaSIM
                     </div>
                     <div className="flex gap-4">
