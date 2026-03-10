@@ -225,42 +225,46 @@ export default function QuizSession() {
             <main className="flex-1 max-w-4xl w-full mx-auto p-3 md:p-8 flex flex-col">
                 <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-8 flex-1">
 
-                    {/* Question Text */}
-                    <h2 className="text-lg md:text-2xl font-bold text-slate-800 mb-4 md:mb-6 leading-relaxed">
-                        {currentQ.question_text}
-                    </h2>
-
                     {/* Dynamic Media Renderer */}
                     {currentQ.media_url && currentQ.media_type && (
-                        <div className="mb-8 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex justify-center items-center">
-                            {currentQ.media_type === 'image' ? (
-                                <img
-                                    src={currentQ.media_url}
-                                    alt="Ilustrasi soal"
-                                    className="max-h-[350px] w-full object-contain"
-                                    loading="lazy"
-                                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x400?text=Gagal+Memuat+Gambar' }}
-                                />
-                            ) : currentQ.media_type === 'video' ? (
-                                <div className="relative w-full flex flex-col">
-                                    <video
+                        <div className="mb-6">
+                            <div className="rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex justify-center items-center">
+                                {currentQ.media_type === 'image' ? (
+                                    <img
                                         src={currentQ.media_url}
-                                        controls
-                                        playsInline
-                                        loop
-                                        controlsList="nodownload"
-                                        preload="metadata"
-                                        className="max-h-[350px] w-full bg-black"
-                                    >
-                                        Browser Anda tidak mendukung HTML5 video.
-                                    </video>
-                                    <p className="absolute bottom-12 left-4 text-[11px] text-slate-300 italic pointer-events-none bg-black/40 px-2 py-1 rounded backdrop-blur-sm border border-slate-700/50 drop-shadow-md">
-                                        silakan tekan/tap video secara manual
-                                    </p>
-                                </div>
-                            ) : null}
+                                        alt="Ilustrasi soal"
+                                        className="max-h-[350px] w-full object-contain"
+                                        loading="lazy"
+                                        onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x400?text=Gagal+Memuat+Gambar' }}
+                                    />
+                                ) : currentQ.media_type === 'video' ? (
+                                    <div className="w-full">
+                                        <video
+                                            src={currentQ.media_url}
+                                            controls
+                                            playsInline
+                                            loop
+                                            controlsList="nodownload"
+                                            preload="metadata"
+                                            className="max-h-[350px] w-full bg-black block"
+                                        >
+                                            Browser Anda tidak mendukung HTML5 video.
+                                        </video>
+                                    </div>
+                                ) : null}
+                            </div>
+                            {currentQ.media_type === 'video' && (
+                                <p className="text-[11px] text-slate-400 italic mt-2 ml-1 text-left">
+                                    * silakan tekan/tap video secara manual
+                                </p>
+                            )}
                         </div>
                     )}
+
+                    {/* Question Text */}
+                    <h2 className="text-lg md:text-2xl font-bold text-slate-800 mb-6 leading-relaxed">
+                        {currentQ.question_text}
+                    </h2>
 
                     {/* Options Grid */}
                     <div className="space-y-4">
