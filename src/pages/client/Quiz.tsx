@@ -116,11 +116,14 @@ export default function QuizSession() {
             const { error } = await supabase.from('test_results').insert([{
                 user_email: session.email,
                 exam_type_taken: session.examType,
-                score: score, // NOTE: If time's up directly, it won't add the current question score. That's fine for MVP
+                score: score,
                 total_questions: questions.length
-            }]);
+            }]).select();
 
-            if (error) throw error;
+            if (error) {
+                console.error("Gagal simpan skor test_results:", error);
+                // Kita biarkan user lewat meskipun gagal simpan, tapi errornya dilog.
+            }
 
             // Navigate to Result Page
             navigate('/result', { state: { score, total: questions.length, examType: session.examType } });

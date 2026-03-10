@@ -35,12 +35,19 @@ export default function LandingPage() {
 
         try {
             // 1. Make sure user exists in Supabase (Lightweight Identify sync)
-            // Upsert: Insert if not exists, do nothing if exists
+            // Upsert: Insert if not exists, update name if exists
             const { error } = await supabase
                 .from('users')
-                .upsert([{ email: email.toLowerCase(), name }], { onConflict: 'email' });
+                .upsert(
+                    { email: email.toLowerCase(), name: name },
+                    { onConflict: 'email' }
+                )
+                .select();
 
-            if (error) throw error;
+            if (error) {
+                console.error("Gagal menyimpan data user:", error);
+                throw error;
+            }
 
             // 2. Save session locally
             saveUserSession({
