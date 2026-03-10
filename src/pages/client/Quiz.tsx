@@ -222,11 +222,11 @@ export default function QuizSession() {
             </header>
 
             {/* Main Content Area */}
-            <main className="flex-1 max-w-4xl w-full mx-auto p-4 md:p-8 flex flex-col">
-                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 flex-1">
+            <main className="flex-1 max-w-4xl w-full mx-auto p-3 md:p-8 flex flex-col">
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-8 flex-1">
 
                     {/* Question Text */}
-                    <h2 className="text-xl md:text-2xl font-bold text-slate-800 mb-6 leading-relaxed">
+                    <h2 className="text-lg md:text-2xl font-bold text-slate-800 mb-4 md:mb-6 leading-relaxed">
                         {currentQ.question_text}
                     </h2>
 
@@ -269,10 +269,10 @@ export default function QuizSession() {
                                 key={option.id}
                                 onClick={() => handleOptionSelect(option.id)}
                                 disabled={isAnswered}
-                                className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center justify-between group ${getOptionStyle(option)}`}
+                                className={`w-full text-left p-3 sm:p-4 rounded-xl border-2 transition-all flex items-center justify-between group ${getOptionStyle(option)}`}
                             >
-                                <div className="flex items-center gap-4">
-                                    <span className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg font-bold text-sm border 
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                    <span className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-lg font-bold text-xs sm:text-sm border 
                     ${isAnswered && option.isCorrect ? 'bg-green-500 text-white border-green-600' :
                                             isAnswered && selectedOption === option.id && !option.isCorrect ? 'bg-red-500 text-white border-red-600' :
                                                 selectedOption === option.id ? 'bg-blue-500 text-white border-blue-600' : 'bg-slate-100 text-slate-600 border-slate-200 group-hover:bg-blue-100 group-hover:text-blue-700'
@@ -280,7 +280,7 @@ export default function QuizSession() {
                                     >
                                         {option.id}
                                     </span>
-                                    <span className={`text-base font-medium ${isAnswered && option.isCorrect ? 'text-green-800' :
+                                    <span className={`text-sm md:text-base font-medium ${isAnswered && option.isCorrect ? 'text-green-800' :
                                         isAnswered && selectedOption === option.id && !option.isCorrect ? 'text-red-800' :
                                             selectedOption === option.id ? 'text-blue-800' : 'text-slate-700'
                                         }`}>
