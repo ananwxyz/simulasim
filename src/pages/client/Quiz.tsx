@@ -222,8 +222,8 @@ export default function QuizSession() {
             </header>
 
             {/* Main Content Area */}
-            <main className="flex-1 max-w-4xl w-full mx-auto p-3 md:p-8 flex flex-col">
-                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-8 flex-1">
+            <main className="flex-1 max-w-4xl w-full mx-auto p-3 md:p-6 flex flex-col">
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-6 flex-1">
 
                     {/* Dynamic Media Renderer */}
                     {currentQ.media_url && currentQ.media_type && (
@@ -262,12 +262,12 @@ export default function QuizSession() {
                     )}
 
                     {/* Question Text */}
-                    <h2 className="text-lg md:text-2xl font-bold text-slate-800 mb-6 leading-relaxed">
+                    <h2 className="text-base md:text-xl font-bold text-slate-800 mb-4 leading-relaxed">
                         {currentQ.question_text}
                     </h2>
 
                     {/* Options Grid */}
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                         {currentQ.options.map((option) => (
                             <button
                                 key={option.id}

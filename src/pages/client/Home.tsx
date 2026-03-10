@@ -120,7 +120,7 @@ export default function Home() {
                     &copy; {new Date().getFullYear()} SimulaSIM. Dibuat untuk kesadaran berlalu lintas.
                     <span className="mx-1">-</span>
                     <a href="https://ananw.xyz" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 font-medium transition-colors">
-                        - ananw.xyz
+                        ananw.xyz
                     </a>
                 </p>
             </footer>
