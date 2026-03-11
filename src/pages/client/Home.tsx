@@ -60,29 +60,51 @@ export default function Home() {
                     </div>
 
                     {/* Modul Download Section */}
-                    <div className="pt-4 flex flex-col items-center justify-center gap-3 text-slate-600 font-medium">
-                        <span className="text-sm">Pelajari materi ujian resmi:</span>
-                        <div className="flex flex-wrap justify-center gap-3">
-                            <a
-                                href="/Sim-C-Modul-1.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-white hover:bg-blue-50 hover:border-blue-200 text-slate-700 border border-slate-200 px-5 py-2.5 rounded-full font-bold text-sm transition-all flex items-center gap-2 shadow-sm hover:shadow"
-                            >
-                                <Bike size={18} className="text-blue-600" />
-                                Modul SIM C
-                                <Download size={16} className="text-slate-400 ml-1" />
-                            </a>
-                            <a
-                                href="/Sim-A-Modul-1.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-white hover:bg-amber-50 hover:border-amber-200 text-slate-700 border border-slate-200 px-5 py-2.5 rounded-full font-bold text-sm transition-all flex items-center gap-2 shadow-sm hover:shadow"
-                            >
-                                <Car size={18} className="text-amber-600" />
-                                Modul SIM A
-                                <Download size={16} className="text-slate-400 ml-1" />
-                            </a>
+                    <div className="pt-6 flex flex-col items-center justify-center gap-4 text-slate-600 font-medium w-full max-w-2xl mx-auto">
+                        <span className="text-sm">📚 Pelajari materi ujian resmi:</span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                            {/* SIM C Modules */}
+                            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                                    <Bike size={18} className="text-blue-600" />
+                                    <span className="font-bold text-slate-800 text-sm">SIM C — Sepeda Motor</span>
+                                </div>
+                                <div className="space-y-2">
+                                    {[1, 2, 3, 4].map((num) => (
+                                        <a
+                                            key={`sim-c-${num}`}
+                                            href={`/Sim-C-Modul-${num}.pdf`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-all group"
+                                        >
+                                            <span>Modul {num}</span>
+                                            <Download size={14} className="text-slate-300 group-hover:text-blue-500 transition-colors" />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                            {/* SIM A Modules */}
+                            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
+                                    <Car size={18} className="text-amber-600" />
+                                    <span className="font-bold text-slate-800 text-sm">SIM A — Mobil Penumpang</span>
+                                </div>
+                                <div className="space-y-2">
+                                    {[1, 2, 3, 4].map((num) => (
+                                        <a
+                                            key={`sim-a-${num}`}
+                                            href={`/Sim-A-Modul-${num}.pdf`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition-all group"
+                                        >
+                                            <span>Modul {num}</span>
+                                            <Download size={14} className="text-slate-300 group-hover:text-amber-500 transition-colors" />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

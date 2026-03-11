@@ -10,6 +10,7 @@ export default function AdminQuestions() {
 
     // Filter States
     const [examFilter, setExamFilter] = useState<string>('Semua');
+    const [moduleFilter, setModuleFilter] = useState<string>('Semua');
     const [categoryFilter, setCategoryFilter] = useState<string>('Semua');
 
     useEffect(() => {
@@ -48,8 +49,9 @@ export default function AdminQuestions() {
     // Computed Filtered Data
     const filteredQuestions = questions.filter(q => {
         const matchExam = examFilter === 'Semua' || q.exam_type === examFilter;
+        const matchModule = moduleFilter === 'Semua' || q.module_number === Number(moduleFilter);
         const matchCategory = categoryFilter === 'Semua' || q.material_category === categoryFilter;
-        return matchExam && matchCategory;
+        return matchExam && matchModule && matchCategory;
     });
 
     return (
@@ -71,6 +73,18 @@ export default function AdminQuestions() {
                             <option value="Semua">Semua SIM</option>
                             <option value="SIM A">SIM A</option>
                             <option value="SIM C">SIM C</option>
+                        </select>
+                        <span className="text-slate-300">|</span>
+                        <select
+                            value={moduleFilter}
+                            onChange={(e) => setModuleFilter(e.target.value)}
+                            className="bg-transparent text-sm font-medium text-slate-700 outline-none cursor-pointer"
+                        >
+                            <option value="Semua">Semua Modul</option>
+                            <option value="1">Modul 1</option>
+                            <option value="2">Modul 2</option>
+                            <option value="3">Modul 3</option>
+                            <option value="4">Modul 4</option>
                         </select>
                         <span className="text-slate-300">|</span>
                         <select
@@ -121,8 +135,8 @@ export default function AdminQuestions() {
                                         <div className="flex flex-col items-center text-slate-400">
                                             <FileText size={48} className="mb-3 text-slate-300" />
                                             <p>Tidak ada soal ujian yang sesuai dengan kriteria filter.</p>
-                                            {(examFilter !== 'Semua' || categoryFilter !== 'Semua') && (
-                                                <button onClick={() => { setExamFilter('Semua'); setCategoryFilter('Semua'); }} className="text-blue-600 hover:underline mt-2">
+                                            {(examFilter !== 'Semua' || moduleFilter !== 'Semua' || categoryFilter !== 'Semua') && (
+                                                <button onClick={() => { setExamFilter('Semua'); setModuleFilter('Semua'); setCategoryFilter('Semua'); }} className="text-blue-600 hover:underline mt-2">
                                                     Reset Filter
                                                 </button>
                                             )}
@@ -138,9 +152,14 @@ export default function AdminQuestions() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex flex-col gap-1">
-                                                <span className={`w-fit px-2 py-0.5 rounded text-xs font-bold ${q.exam_type === 'SIM A' ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}`}>
-                                                    {q.exam_type}
-                                                </span>
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className={`w-fit px-2 py-0.5 rounded text-xs font-bold ${q.exam_type === 'SIM A' ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}`}>
+                                                        {q.exam_type}
+                                                    </span>
+                                                    <span className="w-fit px-2 py-0.5 rounded text-xs font-bold bg-violet-100 text-violet-800">
+                                                        M{q.module_number || 1}
+                                                    </span>
+                                                </div>
                                                 <span className="text-xs text-slate-500 font-medium">{q.material_category}</span>
                                             </div>
                                         </td>

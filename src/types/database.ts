@@ -9,6 +9,7 @@ export interface Question {
     media_url: string | null;
     media_type: 'video' | 'image' | null;
     exam_type: 'SIM A' | 'SIM C';
+    module_number: 1 | 2 | 3 | 4;
     material_category: 'Persepsi Bahaya' | 'Wawasan' | 'Pengetahuan';
     question_text: string;
     options: QuestionOption[];

@@ -14,6 +14,7 @@ export default function QuestionForm() {
 
     // Form State
     const [examType, setExamType] = useState<'SIM A' | 'SIM C'>('SIM C');
+    const [moduleNumber, setModuleNumber] = useState<1 | 2 | 3 | 4>(1);
     const [materialCategory, setMaterialCategory] = useState<'Persepsi Bahaya' | 'Wawasan' | 'Pengetahuan'>('Pengetahuan');
     const [questionText, setQuestionText] = useState('');
     const [mediaType, setMediaType] = useState<'video' | 'image' | ''>('');
@@ -44,6 +45,7 @@ export default function QuestionForm() {
             if (error) throw error;
             if (data) {
                 setExamType(data.exam_type || 'SIM C');
+                setModuleNumber(data.module_number || 1);
                 setMaterialCategory(data.material_category || 'Pengetahuan');
                 setQuestionText(data.question_text);
                 setMediaType(data.media_type || '');
@@ -166,6 +168,7 @@ export default function QuestionForm() {
 
             const payload = {
                 exam_type: examType,
+                module_number: moduleNumber,
                 material_category: materialCategory,
                 question_text: questionText,
                 media_type: mediaType || null,
@@ -213,7 +216,7 @@ export default function QuestionForm() {
             <form onSubmit={handleSubmit} onPaste={handlePaste} className="space-y-6 bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm">
 
                 {/* Category Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label className="block text-sm font-medium text-slate-700 mb-1">
                             Tipe Ujian SIM <span className="text-red-500">*</span>
@@ -226,6 +229,22 @@ export default function QuestionForm() {
                         >
                             <option value="SIM C">SIM C (Sepeda Motor)</option>
                             <option value="SIM A">SIM A (Mobil Penumpang)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1">
+                            Nomor Modul <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                            required
+                            value={moduleNumber}
+                            onChange={(e) => setModuleNumber(Number(e.target.value) as 1 | 2 | 3 | 4)}
+                            className="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 transition-all font-semibold"
+                        >
+                            <option value={1}>Modul 1</option>
+                            <option value={2}>Modul 2</option>
+                            <option value={3}>Modul 3</option>
+                            <option value={4}>Modul 4</option>
                         </select>
                     </div>
                     <div>
