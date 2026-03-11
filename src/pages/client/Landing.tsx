@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { saveUserSession, getUserSession } from '../../lib/session';
-import { Car, ArrowRight, Loader2, ArrowLeft } from 'lucide-react';
+import { Car, Bike, ArrowRight, Loader2, ArrowLeft } from 'lucide-react';
 
 export default function LandingPage() {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [examType, setExamType] = useState<'SIM A' | 'SIM C'>('SIM C');
+    const [moduleNumber, setModuleNumber] = useState<1 | 2 | 3 | 4>(1);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -54,6 +55,7 @@ export default function LandingPage() {
                 name,
                 email: email.toLowerCase(),
                 examType,
+                moduleNumber,
                 startedAt: Date.now()
             });
 
@@ -131,14 +133,34 @@ export default function LandingPage() {
                         <div className="grid grid-cols-2 gap-4">
                             <label className={`cursor-pointer rounded-xl border-2 p-4 flex flex-col items-center gap-2 transition-all shadow-sm ${examType === 'SIM C' ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-blue-500/20' : 'border-slate-200 bg-white hover:border-blue-300'}`}>
                                 <input type="radio" name="examType" value="SIM C" className="hidden" checked={examType === 'SIM C'} onChange={() => setExamType('SIM C')} />
+                                <Bike size={24} />
                                 <span className="font-bold text-lg">SIM C</span>
                                 <span className="text-xs text-center opacity-80 leading-tight">Sepeda Motor</span>
                             </label>
                             <label className={`cursor-pointer rounded-xl border-2 p-4 flex flex-col items-center gap-2 transition-all shadow-sm ${examType === 'SIM A' ? 'border-amber-500 bg-amber-50 text-amber-700 ring-2 ring-amber-500/20' : 'border-slate-200 bg-white hover:border-amber-300'}`}>
                                 <input type="radio" name="examType" value="SIM A" className="hidden" checked={examType === 'SIM A'} onChange={() => setExamType('SIM A')} />
+                                <Car size={24} />
                                 <span className="font-bold text-lg">SIM A</span>
                                 <span className="text-xs text-center opacity-80 leading-tight">Mobil Penumpang</span>
                             </label>
+                        </div>
+                    </div>
+
+                    {/* Pilihan Modul */}
+                    <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2 mt-4">
+                            Pilih Modul <span className="text-red-500">*</span>
+                        </label>
+                        <div className="grid grid-cols-4 gap-2">
+                            {([1, 2, 3, 4] as const).map((num) => (
+                                <label
+                                    key={num}
+                                    className={`cursor-pointer rounded-xl border-2 p-3 flex flex-col items-center gap-1 transition-all shadow-sm ${moduleNumber === num ? 'border-violet-500 bg-violet-50 text-violet-700 ring-2 ring-violet-500/20' : 'border-slate-200 bg-white hover:border-violet-300'}`}
+                                >
+                                    <input type="radio" name="moduleNumber" value={num} className="hidden" checked={moduleNumber === num} onChange={() => setModuleNumber(num)} />
+                                    <span className="font-bold text-base">Modul {num}</span>
+                                </label>
+                            ))}
                         </div>
                     </div>
 

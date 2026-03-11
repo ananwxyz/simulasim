@@ -32,12 +32,14 @@ export default function QuizSession() {
         try {
             setLoading(true);
             const examType = session?.examType || 'SIM C';
+            const moduleNum = session?.moduleNumber || 1;
 
-            // Ambil semua soal untuk tipe ujian ini sekaligus
+            // Ambil semua soal untuk tipe ujian dan modul ini sekaligus
             const { data, error } = await supabase
                 .from('questions')
                 .select('*')
-                .eq('exam_type', examType);
+                .eq('exam_type', examType)
+                .eq('module_number', moduleNum);
 
             if (error) throw error;
 
@@ -183,7 +185,7 @@ export default function QuizSession() {
                             <p className="text-sm text-slate-500 font-medium">
                                 Peserta: <span className="text-slate-900 mr-3">{session?.name}</span>
                                 <span className="bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-1 rounded text-xs font-bold tracking-tight">
-                                    Paket: {session?.examType || 'SIM C'}
+                                    Paket: {session?.examType || 'SIM C'} — Modul {session?.moduleNumber || 1}
                                 </span>
                             </p>
                         </div>
