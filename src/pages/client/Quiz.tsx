@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { getUserSession, clearUserSession } from '../../lib/session';
 import type { Question } from '../../types/database';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { Loader2, AlertCircle, X } from 'lucide-react';
 import ThemeToggle from '../../components/ThemeToggle';
 
 export default function QuizSession() {
@@ -183,13 +183,16 @@ export default function QuizSession() {
                         <div className="p-1 bg-blue-600/10 rounded-lg border border-blue-500/20">
                             <img src="/logo.png" alt="Logo" className="w-4 h-4 object-contain" />
                         </div>
-                        <div className="bg-[var(--card-accent)] text-[var(--subtext)] px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-tight border border-[var(--card-border)]">
-                            PROGRESS: {currentIndex + 1} / {questions.length}
+                        <div className="bg-[var(--card-accent)] text-[var(--subtext)] px-3 py-1 rounded-full text-[10px] font-black tracking-tighter border border-[var(--card-border)] whitespace-nowrap shadow-sm">
+                            {currentIndex + 1} / {questions.length}
                         </div>
-                        <ThemeToggle />
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <div className="scale-75 origin-right">
+                            <ThemeToggle />
+                        </div>
+
                         <div className="flex items-center gap-2 bg-blue-600 text-white px-3 py-1 rounded-full shadow-lg shadow-blue-500/20">
                             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -199,9 +202,10 @@ export default function QuizSession() {
                         
                         <button
                             onClick={handleExit}
-                            className="flex items-center gap-2 px-3 py-1 rounded-full border-2 border-rose-500/30 text-rose-500 hover:bg-rose-500 hover:text-white transition-all font-black text-[9px] uppercase tracking-wider"
+                            className="flex items-center gap-2 px-3 py-1 rounded-full border-2 border-rose-500/30 text-rose-500 hover:bg-rose-500 hover:text-white transition-all font-black text-[9px] uppercase tracking-wider shadow-sm"
                         >
-                            Keluar
+                            <X size={14} className="sm:hidden" />
+                            <span className="hidden sm:inline">EXIT</span>
                         </button>
                     </div>
                 </div>
@@ -221,6 +225,12 @@ export default function QuizSession() {
                     {/* Column 1: Media + Question (LEFT - 70%) */}
                     <div className="lg:w-[70%] flex flex-col border-r border-[var(--card-border)] bg-[var(--card-accent)]/30 min-h-0">
                         <div className="flex-1 flex flex-col p-4 lg:p-5 gap-3 min-h-0">
+                            {/* Category Label Above Media */}
+                            <div className="flex items-center gap-2 mb-4 text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-[0.2em] bg-blue-500/5 w-fit px-3 py-1 rounded-full border border-blue-500/10">
+                                <span className="w-1 h-1 rounded-full bg-blue-600 animate-pulse" />
+                                {currentQ.material_category} • MODUL {session?.moduleNumber}
+                            </div>
+
                             {/* Media Container - Optimized height */}
                             <div className="flex-[0_1_auto] max-h-[65%] bg-[var(--card-bg)] rounded-xl overflow-hidden border border-[var(--card-border)] shadow-sm flex items-center justify-center relative min-h-[200px] p-3">
                                 {currentQ.media_url ? (
@@ -248,17 +258,16 @@ export default function QuizSession() {
                             </div>
 
                             {/* Question Section Below Media - Pulled closer */}
-                            <div className="shrink-0 space-y-1.5 pt-1">
-                                <div className="flex items-center gap-2 text-[8px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-[0.2em]">
-                                    <span className="w-1 h-1 rounded-full bg-blue-600 animate-pulse" />
-                                    {currentQ.material_category} • MODUL {session?.moduleNumber}
+                            <div className="shrink-0 space-y-2 pt-1">
+                                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-blue-500/5 border border-blue-500/10 w-fit">
+                                    <AlertCircle size={12} className="text-blue-500" />
+                                    <p className="text-[10px] text-blue-600 dark:text-blue-400 font-black uppercase tracking-wider">
+                                        Silakan klik video dan aktifkan volume
+                                    </p>
                                 </div>
                                 <h2 className="text-base lg:text-lg xl:text-xl font-semibold text-[var(--heading)] leading-snug tracking-tight overflow-y-auto custom-scrollbar max-h-[100px] pr-2">
                                     {currentQ.question_text}
                                 </h2>
-                                <p className="text-[8px] text-[var(--subtext)] font-bold px-1 italic">
-                                    Mohon aktifkan suara untuk pengalaman terbaik
-                                </p>
                             </div>
                         </div>
                     </div>
