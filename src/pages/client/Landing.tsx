@@ -152,15 +152,33 @@ export default function LandingPage() {
                             Pilih Modul <span className="text-red-500">*</span>
                         </label>
                         <div className="grid grid-cols-4 gap-2">
-                            {([1, 2, 3, 4] as const).map((num) => (
-                                <label
-                                    key={num}
-                                    className={`cursor-pointer rounded-xl border-2 p-3 flex flex-col items-center gap-1 transition-all shadow-sm ${moduleNumber === num ? 'border-violet-500 bg-violet-50 text-violet-700 ring-2 ring-violet-500/20' : 'border-slate-200 bg-white hover:border-violet-300'}`}
-                                >
-                                    <input type="radio" name="moduleNumber" value={num} className="hidden" checked={moduleNumber === num} onChange={() => setModuleNumber(num)} />
-                                    <span className="font-bold text-base">Modul {num}</span>
-                                </label>
-                            ))}
+                            {([1, 2, 3, 4] as const).map((num) => {
+                                const isDisabled = num > 1;
+                                return (
+                                    <label
+                                        key={num}
+                                        className={`rounded-xl border-2 p-3 flex flex-col items-center gap-1 transition-all shadow-sm ${
+                                            isDisabled 
+                                                ? 'border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed opacity-50' 
+                                                : moduleNumber === num 
+                                                    ? 'border-violet-500 bg-violet-50 text-violet-700 ring-2 ring-violet-500/20 cursor-pointer' 
+                                                    : 'border-slate-200 bg-white hover:border-violet-300 cursor-pointer'
+                                        }`}
+                                    >
+                                        <input 
+                                            type="radio" 
+                                            name="moduleNumber" 
+                                            value={num} 
+                                            className="hidden" 
+                                            checked={moduleNumber === num} 
+                                            onChange={() => !isDisabled && setModuleNumber(num)}
+                                            disabled={isDisabled}
+                                        />
+                                        <span className="font-bold text-base">Modul {num}</span>
+                                        {isDisabled && <span className="text-[10px] font-black uppercase tracking-tighter opacity-60">Off</span>}
+                                    </label>
+                                );
+                            })}
                         </div>
                     </div>
 

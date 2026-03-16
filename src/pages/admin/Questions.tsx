@@ -22,7 +22,9 @@ export default function AdminQuestions() {
             const { data, error } = await supabase
                 .from('questions')
                 .select('*')
-                .order('created_at', { ascending: false });
+                .order('exam_type', { ascending: true })
+                .order('module_number', { ascending: true })
+                .order('material_category', { ascending: true });
 
             if (error) throw error;
             setQuestions(data || []);
