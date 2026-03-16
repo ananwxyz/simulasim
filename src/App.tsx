@@ -10,10 +10,13 @@ import HomePage from './pages/client/Home';
 import QuizSession from './pages/client/Quiz';
 import QuizResult from './pages/client/Result';
 
+import { ThemeProvider } from './context/ThemeContext';
+
 function App() {
   return (
-    <Router>
-      <Routes>
+    <ThemeProvider>
+      <Router>
+        <Routes>
         {/* Client Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<LandingPage />} />
@@ -32,6 +35,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </Router>
+  </ThemeProvider>
   );
 }
 
