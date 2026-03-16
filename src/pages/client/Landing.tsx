@@ -45,45 +45,45 @@ export default function Landing() {
                 <ThemeToggle />
             </header>
 
-            <main className="flex-1 flex flex-col items-center justify-center p-6 relative z-10 w-full max-w-7xl mx-auto py-12">
+            <main className="flex-1 flex flex-col items-center justify-center p-6 relative z-10 w-full max-w-7xl mx-auto py-8">
                 <div className="w-full max-w-2xl">
-                    <div className="text-center mb-12 space-y-4">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] font-black uppercase tracking-widest mx-auto shadow-sm">
+                    <div className="text-center mb-8 space-y-3">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[9px] font-black uppercase tracking-widest mx-auto shadow-sm">
                             Sistem Simulasi Terintegrasi
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-black text-[var(--heading)] tracking-tight transition-colors">Satu Langkah Lagi Menuju Ujian</h1>
-                        <p className="text-[var(--subtext)] font-medium max-w-md mx-auto transition-colors">Lengkapi identitas untuk memulai simulasi bank soal resmi SimulaSIM.</p>
+                        <h1 className="text-2xl md:text-3xl font-black text-[var(--heading)] tracking-tight transition-colors">Satu Langkah Lagi Menuju Ujian</h1>
+                        <p className="text-[var(--subtext)] text-sm font-medium max-w-md mx-auto transition-colors">Lengkapi identitas untuk memulai simulasi bank soal resmi SimulaSIM.</p>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-8 bg-[var(--card-bg)] backdrop-blur-2xl p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-[var(--card-border)] transition-all">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="space-y-6">
-                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-xs mb-4 flex items-center gap-2 transition-colors">
+                    <form onSubmit={handleSubmit} className="space-y-6 bg-[var(--card-bg)] backdrop-blur-2xl p-6 md:p-10 rounded-[2rem] shadow-2xl border border-[var(--card-border)] transition-all">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-5">
+                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-[10px] mb-4 flex items-center gap-2 transition-colors">
                                     <User size={14} className="text-blue-500" /> Identitas Peserta
                                 </h3>
                                 <div className="space-y-4">
                                     <div className="group">
-                                        <label className="block text-slate-500 dark:text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2 px-1 transition-colors">Nama Lengkap</label>
+                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1.5 px-1 transition-colors">Nama Lengkap</label>
                                         <div className="relative">
                                             <input
                                                 required
                                                 type="text"
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
-                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
+                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
                                                 placeholder="Cth: Ahmad Fulan"
                                             />
                                         </div>
                                     </div>
                                     <div className="group">
-                                        <label className="block text-slate-500 dark:text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2 px-1 transition-colors">Email Aktif</label>
+                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1.5 px-1 transition-colors">Email Aktif</label>
                                         <div className="relative">
                                             <input
                                                 required
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
+                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
                                                 placeholder="fulan@email.com"
                                             />
                                         </div>
@@ -91,27 +91,27 @@ export default function Landing() {
                                 </div>
                             </div>
 
-                            <div className="space-y-6">
-                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-xs mb-4 flex items-center gap-2 transition-colors">
+                             <div className="space-y-5">
+                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-[10px] mb-4 flex items-center gap-2 transition-colors">
                                     <LayoutDashboard size={14} className="text-blue-500" /> Pilih Simulasi
                                 </h3>
                                 
-                                <div>
-                                    <label className="block text-slate-500 dark:text-slate-500 text-[10px] font-black uppercase tracking-widest mb-4 px-1 transition-colors">Kategori SIM</label>
+                                <div className="space-y-4">
+                                    <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-2 px-1 transition-colors">Kategori SIM</label>
                                     <div className="grid grid-cols-2 gap-3">
                                         {(['SIM C', 'SIM A'] as const).map((type) => (
                                             <button
                                                 key={type}
                                                 type="button"
                                                 onClick={() => setExamType(type)}
-                                                className={`py-6 rounded-2xl border-2 font-black text-sm transition-all flex flex-col items-center gap-3 shadow-md hover:-translate-y-1 ${
+                                                className={`py-5 rounded-2xl border-2 font-black text-xs transition-all flex flex-col items-center gap-2 shadow-md hover:-translate-y-1 ${
                                                     examType === type
                                                         ? 'bg-blue-600 border-blue-500 text-white shadow-blue-500/25'
                                                         : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 dark:hover:bg-white/10 transition-colors'
                                                 }`}
                                             >
-                                                <div className={`p-4 rounded-xl shadow-inner ${examType === type ? 'bg-white/20' : 'bg-slate-100 dark:bg-black/20 text-slate-400 transition-colors'}`}>
-                                                    <ShieldCheck size={28} />
+                                                <div className={`p-3 rounded-xl shadow-inner ${examType === type ? 'bg-white/20' : 'bg-slate-100 dark:bg-black/20 text-slate-400 transition-colors'}`}>
+                                                    <ShieldCheck size={20} />
                                                 </div>
                                                 {type}
                                             </button>
@@ -122,8 +122,8 @@ export default function Landing() {
                         </div>
 
                         {/* Module Selection */}
-                        <div className="pt-6 border-t border-slate-200 dark:border-white/5 transition-colors">
-                            <label className="block text-slate-500 dark:text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6 px-1 text-center transition-colors transition-colors">Pilih Modul Ujian</label>
+                        <div className="pt-4 border-t border-slate-200 dark:border-white/5 transition-colors">
+                            <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-4 px-1 text-center transition-colors transition-colors">Pilih Modul Ujian</label>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 {[1, 2, 3, 4].map((num) => (
                                     <button
@@ -131,7 +131,7 @@ export default function Landing() {
                                         type="button"
                                         disabled={num > 1}
                                         onClick={() => setModuleNumber(num as 1 | 2 | 3 | 4)}
-                                        className={`relative group overflow-hidden py-4 rounded-xl border-2 font-black transition-all flex items-center justify-center gap-2 shadow-md ${
+                                        className={`relative group overflow-hidden py-3 rounded-xl border-2 font-black transition-all flex items-center justify-center gap-2 shadow-md text-xs ${
                                             moduleNumber === num
                                                 ? 'bg-blue-600 border-blue-400 text-white shadow-blue-500/25'
                                                 : num > 1
@@ -140,7 +140,7 @@ export default function Landing() {
                                         }`}
                                     >
                                         Modul {num}
-                                        {num > 1 && <span className="absolute top-1 right-2 text-[8px] bg-slate-200 dark:bg-slate-950 px-1 rounded text-slate-400 dark:text-slate-600 uppercase font-bold tracking-widest transition-colors">Offline</span>}
+                                        {num > 1 && <span className="absolute top-0.5 right-1.5 text-[7px] bg-slate-200 dark:bg-slate-950 px-1 rounded text-slate-400 dark:text-slate-600 uppercase font-bold tracking-widest transition-colors">Offline</span>}
                                         {moduleNumber === num && <div className="absolute inset-0 bg-white/10 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform">✓</div>}
                                     </button>
                                 ))}
@@ -149,17 +149,17 @@ export default function Landing() {
 
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-2xl text-xl transition-all shadow-2xl shadow-blue-600/30 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 relative overflow-hidden group mt-10"
+                            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-4 rounded-2xl text-lg transition-all shadow-2xl shadow-blue-600/30 hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-3 relative overflow-hidden group mt-4"
                         >
                             <span className="relative z-10 flex items-center gap-3">
                                 Mulai Kerjakan Soal
-                                <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-transparent to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity translate-x-[-100%] group-hover:translate-x-[100%] duration-1000"></div>
                         </button>
                     </form>
                     
-                    <footer className="mt-12 text-center text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-[0.3em] transition-colors">
+                    <footer className="mt-8 text-center text-[9px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-[0.3em] transition-colors">
                         &copy; SimulaSIM 2026 &bull; Secure Environment
                     </footer>
                 </div>
