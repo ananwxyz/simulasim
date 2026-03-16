@@ -202,7 +202,7 @@ export default function QuizSession() {
                         
                         <button
                             onClick={handleExit}
-                            className="flex items-center gap-2 px-3 py-1 rounded-full border-2 border-rose-500/30 text-rose-500 hover:bg-rose-500 hover:text-white transition-all font-black text-[9px] uppercase tracking-wider shadow-sm"
+                            className="relative z-[60] flex items-center gap-2 px-3 py-1 rounded-full border-2 border-rose-500/30 text-rose-500 hover:bg-rose-500 hover:text-white transition-all font-black text-[9px] uppercase tracking-wider shadow-sm"
                         >
                             <X size={14} className="sm:hidden" />
                             <span className="hidden sm:inline">EXIT</span>
@@ -228,7 +228,7 @@ export default function QuizSession() {
                             {/* Category Label Above Media */}
                             <div className="flex items-center gap-2 mb-4 text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-[0.2em] bg-blue-500/5 w-fit px-3 py-1 rounded-full border border-blue-500/10">
                                 <span className="w-1 h-1 rounded-full bg-blue-600 animate-pulse" />
-                                {currentQ.material_category} • MODUL {session?.moduleNumber}
+                                {currentQ?.material_category} • MODUL {session?.moduleNumber}
                             </div>
 
                             {/* Media Container - Optimized height */}
