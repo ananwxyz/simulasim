@@ -121,7 +121,7 @@ export default function Landing() {
                         {/* Module Selection */}
                         <div className="pt-4 border-t border-slate-200 dark:border-white/5 transition-colors">
                             <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-4 px-1 text-center transition-colors transition-colors">Pilih Modul Ujian</label>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <div className="grid grid-cols-4 gap-3">
                                 {[1, 2, 3, 4].map((num) => (
                                     <button
                                         key={num}
@@ -136,8 +136,7 @@ export default function Landing() {
                                                     : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 hover:bg-slate-100 transition-colors'
                                         }`}
                                     >
-                                        Modul {num}
-                                        {num > 1 && <span className="absolute top-0.5 right-1.5 text-[7px] bg-slate-200 dark:bg-slate-950 px-1 rounded text-slate-400 dark:text-slate-600 uppercase font-bold tracking-widest transition-colors">Offline</span>}
+                                        {num}
                                         {moduleNumber === num && <div className="absolute inset-0 bg-white/10 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform">✓</div>}
                                     </button>
                                 ))}
