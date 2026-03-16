@@ -20,6 +20,7 @@ export default function QuizSession() {
     const [score, setScore] = useState(0);
     const [isAnswered, setIsAnswered] = useState(false);
     const [timeLeft, setTimeLeft] = useState(30); // 30s per question
+    const [showExitModal, setShowExitModal] = useState(false);
 
     useEffect(() => {
         if (!session) {
@@ -122,10 +123,14 @@ export default function QuizSession() {
     };
 
     const handleExit = () => {
-        if (window.confirm('Apakah Anda yakin ingin membatalkan dan keluar dari ujian? Progres Anda saat ini TIDAK akan tersimpan.')) {
-            clearUserSession();
-            navigate('/');
-        }
+        console.log('EXIT button clicked');
+        setShowExitModal(true);
+    };
+
+    const confirmExit = () => {
+        console.log('EXIT confirmed via Modal');
+        clearUserSession();
+        navigate('/');
     };
 
     const handleCompleteQuiz = async () => {
@@ -202,9 +207,10 @@ export default function QuizSession() {
                         
                         <button
                             onClick={handleExit}
-                            className="relative z-[60] flex items-center gap-2 px-3 py-1 rounded-full border-2 border-rose-500/30 text-rose-500 hover:bg-rose-500 hover:text-white transition-all font-black text-[9px] uppercase tracking-wider shadow-sm"
+                            className="relative z-[70] flex items-center justify-center gap-2 px-4 py-2 rounded-full border-2 border-rose-500/40 text-rose-500 hover:bg-rose-500 hover:text-white transition-all font-black text-xs uppercase tracking-wider shadow-lg active:scale-95 touch-manipulation"
+                            title="Exit"
                         >
-                            <X size={14} className="sm:hidden" />
+                            <X size={18} />
                             <span className="hidden sm:inline">EXIT</span>
                         </button>
                     </div>
@@ -335,6 +341,42 @@ export default function QuizSession() {
                     </p>
                 </div>
             </footer>
+
+            {/* EXIT CONFIRMATION MODAL */}
+            {showExitModal && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md transition-all duration-300">
+                    <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-[2rem] p-8 max-w-sm w-full shadow-2xl scale-in-center overflow-hidden relative">
+                        {/* Decorative Background bloob */}
+                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-rose-500/10 rounded-full blur-3xl" />
+                        
+                        <div className="relative z-10 text-center">
+                            <div className="w-16 h-16 bg-rose-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-rose-500/20">
+                                <AlertCircle size={32} className="text-rose-500" />
+                            </div>
+                            <h3 className="text-xl font-black text-[var(--heading)] mb-3 leading-tight tracking-tight">Batalkan Ujian?</h3>
+                            <p className="text-sm text-[var(--subtext)] mb-8 font-medium leading-relaxed">
+                                Apakah Anda yakin ingin membatalkan dan keluar? <br/>
+                                <span className="text-rose-500 font-bold">Progres Anda saat ini tidak akan tersimpan.</span>
+                            </p>
+                            
+                            <div className="grid grid-cols-2 gap-3">
+                                <button
+                                    onClick={() => setShowExitModal(false)}
+                                    className="py-3 px-4 rounded-xl border border-[var(--card-border)] text-[var(--foreground)] font-black text-[10px] uppercase tracking-widest hover:bg-[var(--card-accent)] transition-all"
+                                >
+                                    Batal
+                                </button>
+                                <button
+                                    onClick={confirmExit}
+                                    className="py-3 px-4 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-black text-[10px] uppercase tracking-widest shadow-lg shadow-rose-500/20 transition-all"
+                                >
+                                    Ya, Keluar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 
