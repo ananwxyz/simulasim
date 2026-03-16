@@ -18,7 +18,7 @@ export default function Home() {
                         <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-500/20 shadow-inner">
                             <img src="/logo.png" alt="SimulaSIM Logo" className="w-6 h-6 object-contain" />
                         </div>
-                        <span className="text-[var(--heading)] font-black text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-[var(--heading)] to-[var(--subtext)]">
+                        <span className="text-[var(--heading)] font-black text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-[var(--heading)] to-[var(--subtext)]">
                             SimulaSIM
                         </span>
                     </div>
@@ -56,24 +56,24 @@ export default function Home() {
                                 Official Theory Quiz 2026
                             </div>
 
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[var(--heading)] tracking-tight leading-[0.9] lg:leading-[1]">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[var(--heading)] tracking-tight leading-[1.1] lg:leading-[1.1]">
                                 Lulus Ujian SIM <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400">
                                     dengan Percaya Diri.
                                 </span>
                             </h1>
 
-                            <p className="text-lg md:text-xl text-[var(--subtext)] max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium transition-colors">
+                            <p className="text-base md:text-lg text-[var(--subtext)] max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium transition-colors">
                                 Latih insting berkendara Anda dengan simulasi kuis interaktif yang dirancang sesuai standar resmi ujian teori SIM.
                             </p>
 
                             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                                 <Link
                                     to="/register"
-                                    className="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black text-lg transition-all shadow-[0_0_40px_-10px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_-10px_rgba(37,99,235,0.6)] hover:-translate-y-1 flex items-center gap-3 w-full sm:w-auto justify-center group"
+                                    className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black text-base transition-all shadow-[0_0_40px_-10px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_-10px_rgba(37,99,235,0.6)] hover:-translate-y-1 flex items-center gap-3 w-full sm:w-auto justify-center group"
                                 >
                                     Mulai Simulasi
-                                    <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                                 <div className="flex -space-x-3 items-center">
                                     {[1, 2, 3].map((i) => (
@@ -117,10 +117,10 @@ export default function Home() {
                         
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-4xl md:text-5xl font-black text-[var(--heading)] dark:text-white leading-tight mb-6 whitespace-nowrap transition-colors">
+                                <h2 className="text-3xl md:text-4xl font-black text-[var(--heading)] dark:text-white leading-tight mb-5 whitespace-nowrap transition-colors">
                                     Unduh Materi Resmi.
                                 </h2>
-                                <p className="text-[var(--subtext)] dark:text-white/90 text-lg font-medium mb-10 transition-colors">
+                                <p className="text-[var(--subtext)] dark:text-white/90 text-base font-medium mb-8 transition-colors">
                                     Pelajari teori berkendaraan langsung dari sumbernya sebelum memulai simulasi.
                                 </p>
                                 <div className="space-y-4">
@@ -140,7 +140,7 @@ export default function Home() {
                                         <div className="p-2 bg-blue-500/10 rounded-lg text-blue-600 dark:text-blue-400 transition-colors">
                                             <Bike size={24} />
                                         </div>
-                                        <span className="font-black text-[var(--heading)] dark:text-white text-lg transition-colors">SIM C</span>
+                                        <span className="font-black text-[var(--heading)] dark:text-white text-base transition-colors">SIM C</span>
                                     </div>
                                     <div className="grid grid-cols-2 gap-2">
                                         {[1, 2, 3, 4].map((num) => (
@@ -162,7 +162,7 @@ export default function Home() {
                                         <div className="p-2 bg-amber-500/10 rounded-lg text-amber-600 dark:text-amber-400 transition-colors">
                                             <Car size={24} />
                                         </div>
-                                        <span className="font-black text-[var(--heading)] dark:text-white text-lg transition-colors">SIM A</span>
+                                        <span className="font-black text-[var(--heading)] dark:text-white text-base transition-colors">SIM A</span>
                                     </div>
                                     <div className="grid grid-cols-2 gap-2">
                                         {[1, 2, 3, 4].map((num) => (
@@ -184,9 +184,9 @@ export default function Home() {
 
                 {/* Features Section */}
                 <section id="features" className="max-w-7xl mx-auto px-6 pb-32">
-                    <div className="text-center mb-20 space-y-4">
-                        <h2 className="text-3xl md:text-5xl font-black text-[var(--heading)] transition-colors">Fitur Unggul</h2>
-                        <p className="text-[var(--subtext)] max-w-xl mx-auto font-medium transition-colors">Teknologi pembelajaran interaktif untuk hasil maksimal.</p>
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-2xl md:text-4xl font-black text-[var(--heading)] transition-colors">Fitur Unggul</h2>
+                        <p className="text-[var(--subtext)] max-w-xl mx-auto text-sm font-medium transition-colors">Teknologi pembelajaran interaktif untuk hasil maksimal.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -218,8 +218,8 @@ export default function Home() {
                                 }`}>
                                     {f.icon}
                                 </div>
-                                <h3 className="text-2xl font-extrabold text-[var(--heading)] mb-4 transition-colors">{f.title}</h3>
-                                <p className="text-slate-500 dark:text-white/80 leading-relaxed font-medium transition-colors">{f.desc}</p>
+                                <h3 className="text-xl font-extrabold text-[var(--heading)] mb-3 transition-colors">{f.title}</h3>
+                                <p className="text-slate-500 dark:text-white/80 text-sm leading-relaxed font-medium transition-colors">{f.desc}</p>
                             </div>
                         ))}
                     </div>
