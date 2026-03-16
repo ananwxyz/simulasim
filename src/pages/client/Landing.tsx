@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShieldCheck, User, ChevronRight, LayoutDashboard } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { saveUserSession } from '../../lib/session';
 import ThemeToggle from '../../components/ThemeToggle';
 
@@ -56,34 +56,34 @@ export default function Landing() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6 bg-[var(--card-bg)] backdrop-blur-2xl p-6 md:p-10 rounded-[2rem] shadow-2xl border border-[var(--card-border)] transition-all">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-5">
-                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-[10px] mb-4 flex items-center gap-2 transition-colors">
-                                    <User size={14} className="text-blue-500" /> Identitas Peserta
+                        <div className="space-y-4">
+                            <div>
+                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-[9px] mb-2.5 transition-colors">
+                                    Identitas Peserta
                                 </h3>
-                                <div className="space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="group">
-                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1.5 px-1 transition-colors">Nama Lengkap</label>
+                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Nama Lengkap</label>
                                         <div className="relative">
                                             <input
                                                 required
                                                 type="text"
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
-                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
+                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
                                                 placeholder="Cth: Ahmad Fulan"
                                             />
                                         </div>
                                     </div>
                                     <div className="group">
-                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1.5 px-1 transition-colors">Email Aktif</label>
+                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Email Aktif</label>
                                         <div className="relative">
                                             <input
                                                 required
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
+                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
                                                 placeholder="fulan@email.com"
                                             />
                                         </div>
@@ -91,28 +91,25 @@ export default function Landing() {
                                 </div>
                             </div>
 
-                             <div className="space-y-5">
-                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-[10px] mb-4 flex items-center gap-2 transition-colors">
-                                    <LayoutDashboard size={14} className="text-blue-500" /> Pilih Simulasi
+                            <div>
+                                <h3 className="text-slate-900 dark:text-white font-black uppercase tracking-widest text-[9px] mb-2.5 transition-colors">
+                                    Pilih Simulasi
                                 </h3>
                                 
-                                <div className="space-y-4">
-                                    <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-2 px-1 transition-colors">Kategori SIM</label>
-                                    <div className="grid grid-cols-2 gap-3">
+                                <div className="space-y-3">
+                                    <label className="block text-slate-500 dark:text-slate-500 text-[8px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Kategori SIM</label>
+                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                                         {(['SIM C', 'SIM A'] as const).map((type) => (
                                             <button
                                                 key={type}
                                                 type="button"
                                                 onClick={() => setExamType(type)}
-                                                className={`py-5 rounded-2xl border-2 font-black text-xs transition-all flex flex-col items-center gap-2 shadow-md hover:-translate-y-1 ${
+                                                className={`py-3 rounded-2xl border-2 font-black text-xs transition-all flex items-center justify-center gap-2 shadow-md hover:-translate-y-1 ${
                                                     examType === type
                                                         ? 'bg-blue-600 border-blue-500 text-white shadow-blue-500/25'
                                                         : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 dark:hover:bg-white/10 transition-colors'
                                                 }`}
                                             >
-                                                <div className={`p-3 rounded-xl shadow-inner ${examType === type ? 'bg-white/20' : 'bg-slate-100 dark:bg-black/20 text-slate-400 transition-colors'}`}>
-                                                    <ShieldCheck size={20} />
-                                                </div>
                                                 {type}
                                             </button>
                                         ))}
