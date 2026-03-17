@@ -87,7 +87,7 @@ export default function QuizResult() {
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 text-[var(--subtext)] font-black text-[9px] uppercase tracking-widest mb-8 transition-colors">
                             Paket Ujian: <span className="text-blue-600 dark:text-blue-400 transition-colors uppercase">{state.examType}</span>
                         </div>
-                        
+
                         <p className="text-[var(--subtext)] mb-8 text-sm md:text-base font-medium leading-relaxed transition-colors px-4">
                             {isPassed
                                 ? 'Selamat! Anda telah menunjukkan pemahaman yang matang terhadap aturan lalu lintas.'
@@ -207,8 +207,8 @@ export default function QuizResult() {
                         <div className="space-y-3">
                             <p className="text-[var(--subtext)] text-[11px] font-medium transition-colors">&copy; {new Date().getFullYear()} SimulaSIM. Dedicated to road safety awareness.</p>
                             <div className="flex justify-center gap-6">
-                                <a href="https://ananw.xyz" target="_blank" rel="noopener noreferrer" className="text-[var(--subtext)] opacity-60 hover:opacity-100 hover:text-blue-500 font-black text-[9px] uppercase tracking-widest transition-all tracking-[0.2em]">
-                                    Created by ananw.xyz
+                                <a href="https://ananw.xyz" target="_blank" rel="noopener noreferrer" className="text-[var(--subtext)] opacity-60 hover:opacity-100 hover:text-blue-500 font-black text-[9px] tracking-widest transition-all tracking-[0.2em]">
+                                    created by ananw.xyz
                                 </a>
                             </div>
                         </div>
