@@ -70,7 +70,7 @@ export default function Landing() {
                                                 type="text"
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
-                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
+                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 shadow-sm"
                                                 placeholder="Cth: Ahmad Fulan"
                                             />
                                         </div>
@@ -83,7 +83,7 @@ export default function Landing() {
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-800 shadow-sm"
+                                                className="w-full bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-white/[0.05] transition-all font-bold text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 shadow-sm"
                                                 placeholder="fulan@email.com"
                                             />
                                         </div>
@@ -132,7 +132,7 @@ export default function Landing() {
                                             moduleNumber === num
                                                 ? 'bg-blue-600 border-blue-400 text-white shadow-blue-500/25'
                                                 : num > 1
-                                                    ? 'bg-slate-100 dark:bg-white/5 border-slate-200 dark:border-white/5 text-slate-300 dark:text-slate-800 cursor-not-allowed transition-colors'
+                                                    ? 'bg-slate-100 dark:bg-white/5 border-slate-200 dark:border-white/5 text-slate-400 dark:text-slate-800 cursor-not-allowed transition-colors'
                                                     : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 hover:bg-slate-100 transition-colors'
                                         }`}
                                     >

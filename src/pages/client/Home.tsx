@@ -147,10 +147,10 @@ export default function Home() {
                                             <a
                                                 key={`sim-c-${num}`}
                                                 href={`/Sim-C-Modul-${num}.pdf`}
-                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-white/10 hover:bg-blue-600 hover:text-white transition-all text-[var(--foreground)] dark:text-white font-black text-xs group transition-colors"
+                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-blue-600 hover:text-white transition-all text-slate-600 dark:text-white font-black text-xs group"
                                             >
                                                 M{num}
-                                                <Download size={14} className="mt-1 opacity-40 group-hover:opacity-100" />
+                                                <Download size={14} className="mt-1 text-blue-600/50 dark:text-blue-400/50 group-hover:text-white transition-colors" />
                                             </a>
                                         ))}
                                     </div>
@@ -169,10 +169,10 @@ export default function Home() {
                                             <a
                                                 key={`sim-a-${num}`}
                                                 href={`/Sim-A-Modul-${num}.pdf`}
-                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-white/10 hover:bg-amber-600 hover:text-white transition-all text-[var(--foreground)] dark:text-white font-black text-xs group transition-colors"
+                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-amber-600 hover:text-white transition-all text-slate-600 dark:text-white font-black text-xs group"
                                             >
                                                 M{num}
-                                                <Download size={14} className="mt-1 opacity-40 group-hover:opacity-100" />
+                                                <Download size={14} className="mt-1 text-amber-600/50 dark:text-amber-400/50 group-hover:text-white transition-colors" />
                                             </a>
                                         ))}
                                     </div>
