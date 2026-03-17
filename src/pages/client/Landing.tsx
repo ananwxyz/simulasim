@@ -63,7 +63,7 @@ export default function Landing() {
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="group">
-                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Nama Lengkap</label>
+                                        <label className="block text-slate-900 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Nama Lengkap</label>
                                         <div className="relative">
                                             <input
                                                 required
@@ -97,7 +97,7 @@ export default function Landing() {
                                 </h3>
                                 
                                 <div className="space-y-3">
-                                    <label className="block text-slate-500 dark:text-slate-500 text-[8px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Kategori SIM</label>
+                                    <label className="block text-slate-900 dark:text-slate-500 text-[8px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Kategori SIM</label>
                                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                                         {(['SIM C', 'SIM A'] as const).map((type) => (
                                             <button

@@ -5,15 +5,15 @@
 }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --heading: #0f172a;
-  --subtext: #64748b;
+  --background: #fcfcfd;
+  --foreground: #020617;
+  --heading: #020617;
+  --subtext: #475569;
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
-  --card-accent: #f1f5f9;
+  --card-accent: #f8fafc;
   --donation-bg: #f1f5f9;
-  --donation-text: #475569;
+  --donation-text: #020617;
 }
 
 .dark {

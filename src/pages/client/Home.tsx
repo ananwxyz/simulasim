@@ -33,7 +33,7 @@ export default function Home() {
                                 href="https://mayar.gg/ananw"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-5 py-2.5 text-sm font-bold bg-[var(--donation-bg)] hover:scale-105 border border-[var(--card-border)] rounded-full transition-all flex items-center gap-2 text-[var(--donation-text)]"
+                                className="px-5 py-2.5 text-sm font-bold bg-slate-100 dark:bg-white/5 hover:scale-105 border border-slate-200 dark:border-white/10 rounded-full transition-all flex items-center gap-2 text-slate-900 dark:text-blue-400"
                             >
                                 ☕ <span className="hidden sm:inline">Donasi</span>
                             </a>
@@ -117,15 +117,15 @@ export default function Home() {
                         
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-4xl font-black text-[var(--heading)] dark:text-white leading-tight mb-5 whitespace-nowrap transition-colors">
+                                <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-tight mb-5 whitespace-nowrap transition-colors">
                                     Unduh Materi Resmi.
                                 </h2>
-                                <p className="text-[var(--subtext)] dark:text-white/90 text-base font-medium mb-8 transition-colors">
+                                <p className="text-slate-600 dark:text-slate-400 text-base font-medium mb-8 transition-colors">
                                     Pelajari teori berkendaraan langsung dari sumbernya sebelum memulai simulasi.
                                 </p>
                                 <div className="space-y-4">
                                     {['Materi Rambu', 'Etika Berkendara', 'Teknis Kendaraan'].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-3 text-[var(--foreground)] dark:text-white font-bold transition-colors">
+                                        <div key={i} className="flex items-center gap-3 text-slate-900 dark:text-white font-bold transition-colors">
                                             <CheckCircle2 size={18} className="text-blue-600 dark:text-blue-400 shadow-blue-500/20 shadow-lg" />
                                             {item}
                                         </div>
@@ -147,10 +147,10 @@ export default function Home() {
                                             <a
                                                 key={`sim-c-${num}`}
                                                 href={`/Sim-C-Modul-${num}.pdf`}
-                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-blue-600 hover:text-white transition-all text-slate-600 dark:text-white font-black text-xs group"
+                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-blue-600 hover:text-white transition-all text-slate-900 dark:text-white font-black text-xs group"
                                             >
                                                 M{num}
-                                                <Download size={14} className="mt-1 text-blue-600/50 dark:text-blue-400/50 group-hover:text-white transition-colors" />
+                                                <Download size={14} className="mt-1 text-blue-600 dark:text-blue-400/50 group-hover:text-white transition-colors" />
                                             </a>
                                         ))}
                                     </div>
@@ -169,10 +169,10 @@ export default function Home() {
                                             <a
                                                 key={`sim-a-${num}`}
                                                 href={`/Sim-A-Modul-${num}.pdf`}
-                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-amber-600 hover:text-white transition-all text-slate-600 dark:text-white font-black text-xs group"
+                                                className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-amber-600 hover:text-white transition-all text-slate-900 dark:text-white font-black text-xs group"
                                             >
                                                 M{num}
-                                                <Download size={14} className="mt-1 text-amber-600/50 dark:text-amber-400/50 group-hover:text-white transition-colors" />
+                                                <Download size={14} className="mt-1 text-amber-600 dark:text-amber-400/50 group-hover:text-white transition-colors" />
                                             </a>
                                         ))}
                                     </div>
@@ -185,8 +185,8 @@ export default function Home() {
                 {/* Features Section */}
                 <section id="features" className="max-w-7xl mx-auto px-6 pb-32">
                     <div className="text-center mb-16 space-y-4">
-                        <h2 className="text-2xl md:text-4xl font-black text-[var(--heading)] transition-colors">Fitur Unggul</h2>
-                        <p className="text-[var(--subtext)] max-w-xl mx-auto text-sm font-medium transition-colors">Teknologi pembelajaran interaktif untuk hasil maksimal.</p>
+                        <h2 className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white transition-colors">Fitur Unggul</h2>
+                        <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm font-medium transition-colors">Teknologi pembelajaran interaktif untuk hasil maksimal.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
