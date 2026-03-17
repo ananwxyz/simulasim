@@ -238,7 +238,7 @@ export default function QuizSession() {
                             </div>
 
                             {/* Media Container - Optimized height */}
-                            <div className="flex-[0_1_auto] max-h-[65%] bg-[var(--card-bg)] rounded-xl overflow-hidden border border-[var(--card-border)] shadow-sm flex items-center justify-center relative min-h-[200px] p-3">
+                            <div className="flex-[0_1_auto] max-h-[40vh] lg:max-h-[65%] bg-[var(--card-bg)] rounded-xl overflow-hidden border border-[var(--card-border)] shadow-sm flex items-center justify-center relative min-h-[160px] lg:min-h-[200px] p-2 lg:p-3">
                                 {currentQ.media_url ? (
                                     <>
                                         {currentQ.media_type === 'image' ? (
@@ -264,14 +264,14 @@ export default function QuizSession() {
                             </div>
 
                             {/* Question Section Below Media - Pulled closer */}
-                            <div className="shrink-0 space-y-2 pt-1">
+                            <div className="shrink-0 space-y-1.5 lg:space-y-2 pt-1">
                                 <div className="flex items-center gap-2 p-1.5 rounded-lg bg-blue-500/5 border border-blue-500/10 w-fit">
-                                    <AlertCircle size={12} className="text-blue-500" />
-                                    <p className="text-[10px] text-blue-600 dark:text-blue-400 font-black uppercase tracking-wider">
+                                    <AlertCircle size={10} className="text-blue-500" />
+                                    <p className="text-[9px] lg:text-[10px] text-blue-600 dark:text-blue-400 font-black uppercase tracking-wider">
                                         Silakan klik video dan aktifkan volume
                                     </p>
                                 </div>
-                                <h2 className="text-base lg:text-lg xl:text-xl font-semibold text-[var(--heading)] leading-snug tracking-tight overflow-y-auto custom-scrollbar max-h-[100px] pr-2">
+                                <h2 className="text-sm lg:text-lg xl:text-xl font-bold text-[var(--heading)] leading-tight lg:leading-snug tracking-tight overflow-y-auto custom-scrollbar max-h-[80px] lg:max-h-[100px] pr-2">
                                     {currentQ.question_text}
                                 </h2>
                             </div>
@@ -279,13 +279,13 @@ export default function QuizSession() {
                     </div>
 
                     {/* Column 2: Options (RIGHT - 30%) */}
-                    <div className="lg:w-[30%] flex flex-col bg-[var(--card-bg)] min-h-0">
-                        <div className="flex-1 flex flex-col p-4 lg:p-6 min-h-0">
-                            <div className="mb-4 shrink-0">
-                                <h3 className="text-[10px] font-black text-[var(--subtext)] uppercase tracking-[0.2em]">Pilih Jawaban:</h3>
+                    <div className="lg:w-[30%] flex flex-col bg-[var(--card-bg)] lg:border-l lg:border-[var(--card-border)] min-h-0">
+                        <div className="flex-1 flex flex-col p-3 lg:p-6 min-h-0">
+                            <div className="mb-2 lg:mb-4 shrink-0 px-1">
+                                <h3 className="text-[9px] lg:text-[10px] font-black text-[var(--subtext)] uppercase tracking-[0.2em]">Pilih Jawaban:</h3>
                             </div>
                             
-                            <div className="space-y-2.5 flex-1 overflow-y-auto pr-3 custom-scrollbar min-h-0">
+                            <div className="space-y-2 lg:space-y-2.5 flex-1 overflow-y-auto pr-2 gap-2 lg:pr-3 custom-scrollbar min-h-0">
                                 {currentQ.options.map((option) => (
                                     <button
                                         key={option.id}
@@ -334,7 +334,7 @@ export default function QuizSession() {
             </main>
 
             {/* Compact Footer */}
-            <footer className="py-2.5 border-t border-[var(--card-border)] bg-[var(--card-bg)] shrink-0 transition-colors">
+            <footer className="hidden lg:block py-2.5 border-t border-[var(--card-border)] bg-[var(--card-bg)] shrink-0 transition-colors">
                 <div className="max-w-screen-2xl mx-auto px-6 text-center">
                     <p className="text-[var(--subtext)] text-[9px] font-medium transition-colors">
                         © 2026 SimulaSIM. Dedicated to road safety awareness.
