@@ -9,7 +9,7 @@ export default function Landing() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [examType, setExamType] = useState<'SIM A' | 'SIM C'>('SIM C');
-    const [moduleNumber, setModuleNumber] = useState<1 | 2 | 3 | 4>(1);
+    const [moduleNumber, setModuleNumber] = useState<0 | 1 | 2 | 3 | 4>(1);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -121,14 +121,14 @@ export default function Landing() {
                         {/* Module Selection */}
                         <div className="pt-4 border-t border-slate-200 dark:border-white/5 transition-colors">
                             <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-4 px-1 text-center transition-colors transition-colors">Pilih Modul Ujian</label>
-                            <div className="grid grid-cols-4 gap-3">
-                                {[1, 2, 3, 4].map((num) => (
+                            <div className="grid grid-cols-5 gap-2">
+                                {[0, 1, 2, 3, 4].map((num) => (
                                     <button
                                         key={num}
                                         type="button"
                                         disabled={num > 1}
-                                        onClick={() => setModuleNumber(num as 1 | 2 | 3 | 4)}
-                                        className={`relative group overflow-hidden py-3 rounded-xl border-2 font-black transition-all flex items-center justify-center gap-2 shadow-md text-xs ${
+                                        onClick={() => setModuleNumber(num as 0 | 1 | 2 | 3 | 4)}
+                                        className={`relative group overflow-hidden py-3 rounded-xl border-2 font-black transition-all flex items-center justify-center gap-2 shadow-md text-[10px] ${
                                             moduleNumber === num
                                                 ? 'bg-blue-600 border-blue-400 text-white shadow-blue-500/25'
                                                 : num > 1
@@ -136,7 +136,7 @@ export default function Landing() {
                                                     : 'bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 hover:bg-slate-100 transition-colors'
                                         }`}
                                     >
-                                        {num}
+                                        {num === 0 ? 'ALL' : num}
                                         {moduleNumber === num && <div className="absolute inset-0 bg-white/10 flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform">✓</div>}
                                     </button>
                                 ))}

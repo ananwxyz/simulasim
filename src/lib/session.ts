@@ -2,7 +2,7 @@ export interface UserSession {
     name: string;
     email: string;
     examType: 'SIM A' | 'SIM C';
-    moduleNumber: 1 | 2 | 3 | 4;
+    moduleNumber: 0 | 1 | 2 | 3 | 4;
     startedAt: number;
 }
 

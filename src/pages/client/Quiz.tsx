@@ -57,13 +57,18 @@ export default function QuizSession() {
         try {
             setLoading(true);
             const examType = session?.examType || 'SIM C';
-            const moduleNum = session?.moduleNumber || 1;
+            const moduleNum = (session?.moduleNumber ?? 1) as number;
 
-            const { data, error } = await supabase
+            let query = supabase
                 .from('questions')
                 .select('*')
-                .eq('exam_type', examType)
-                .eq('module_number', moduleNum);
+                .eq('exam_type', examType);
+
+            if (moduleNum !== 0) {
+                query = query.eq('module_number', moduleNum);
+            }
+
+            const { data, error } = await query;
 
             if (error) throw error;
 
