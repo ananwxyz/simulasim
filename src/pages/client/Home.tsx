@@ -120,7 +120,7 @@ export default function Home() {
                                 <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-tight mb-5 whitespace-nowrap transition-colors">
                                     Unduh Materi Resmi.
                                 </h2>
-                                <p className="text-slate-600 dark:text-slate-400 text-base font-medium mb-8 transition-colors">
+                                <p className="text-slate-900 dark:text-slate-400 text-base font-medium mb-8 transition-colors">
                                     Pelajari teori berkendaraan langsung dari sumbernya sebelum memulai simulasi.
                                 </p>
                                 <div className="space-y-4">
@@ -186,7 +186,7 @@ export default function Home() {
                 <section id="features" className="max-w-7xl mx-auto px-6 pb-32">
                     <div className="text-center mb-16 space-y-4">
                         <h2 className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white transition-colors">Fitur Unggul</h2>
-                        <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm font-medium transition-colors">Teknologi pembelajaran interaktif untuk hasil maksimal.</p>
+                        <p className="text-slate-900 dark:text-slate-400 max-w-xl mx-auto text-sm font-medium transition-colors">Teknologi pembelajaran interaktif untuk hasil maksimal.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -219,7 +219,7 @@ export default function Home() {
                                     {f.icon}
                                 </div>
                                 <h3 className="text-xl font-extrabold text-[var(--heading)] mb-3 transition-colors">{f.title}</h3>
-                                <p className="text-slate-500 dark:text-white/80 text-sm leading-relaxed font-medium transition-colors">{f.desc}</p>
+                                <p className="text-slate-900 dark:text-white/80 text-sm leading-relaxed font-medium transition-colors">{f.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -231,8 +231,8 @@ export default function Home() {
                     <div className="space-y-4">
                         <p className="text-[var(--subtext)] text-sm font-medium transition-colors">&copy; {new Date().getFullYear()} SimulaSIM. Dedicated to road safety awareness.</p>
                         <div className="flex justify-center gap-6">
-                            <a href="https://ananw.xyz" target="_blank" rel="noopener noreferrer" className="text-[var(--subtext)] opacity-60 hover:opacity-100 hover:text-blue-500 font-black text-xs uppercase tracking-widest transition-all tracking-[0.2em]">
-                                Created by ananw.xyz
+                            <a href="https://ananw.xyz" target="_blank" rel="noopener noreferrer" className="text-[var(--subtext)] opacity-60 hover:opacity-100 hover:text-blue-500 font-black text-xs tracking-widest transition-all tracking-[0.2em]">
+                                created by ananw.xyz
                             </a>
                         </div>
                     </div>

@@ -76,7 +76,7 @@ export default function Landing() {
                                         </div>
                                     </div>
                                     <div className="group">
-                                        <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Email Aktif</label>
+                                        <label className="block text-slate-900 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1 px-1 transition-colors">Email Aktif</label>
                                         <div className="relative">
                                             <input
                                                 required
@@ -120,7 +120,7 @@ export default function Landing() {
 
                         {/* Module Selection */}
                         <div className="pt-4 border-t border-slate-200 dark:border-white/5 transition-colors">
-                            <label className="block text-slate-500 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-4 px-1 text-center transition-colors transition-colors">Pilih Modul Ujian</label>
+                            <label className="block text-slate-900 dark:text-slate-500 text-[9px] font-black uppercase tracking-widest mb-4 px-1 text-center transition-colors transition-colors">Pilih Modul Ujian</label>
                             <div className="grid grid-cols-5 gap-2">
                                 {[0, 1, 2, 3, 4].map((num) => (
                                     <button
@@ -155,7 +155,7 @@ export default function Landing() {
                         </button>
                     </form>
                     
-                    <footer className="mt-8 text-center text-[9px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-[0.3em] transition-colors">
+                    <footer className="mt-8 text-center text-[9px] text-slate-600 dark:text-slate-500 font-bold uppercase tracking-[0.3em] transition-colors">
                         &copy; SimulaSIM 2026 &bull; Secure Environment
                     </footer>
                 </div>
